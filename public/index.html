@@ -25,13 +25,11 @@
 		
 		<div id="js-gallery" class="gallery">
 			<div class="gallery__toolbar">
-				<p class="gallery__image-of"><span id="js-image-of">1</span> of 10</p>
 				<ul class="gallery__tools nav">
-					<li id="js-toggle-caption"><span class="icon">&#xF010;</span> Hide caption</li>
-					<li class="tools__share">Share</li>
+					<li>Show collection</li>
+					<li>Fullscreen</li>
 				</ul>
 			</div>
-
 			<div class="gallery__viewport">
 				<ul id="js-gallery-images" class="gallery__images nav">
 					<li><img src="img/gallery/1.jpg" alt="" width="976" height="549"></li>
@@ -45,8 +43,6 @@
 					<li><img src="img/gallery/9.jpg" alt="" width="976" height="549"></li>
 					<li><img src="img/gallery/10.jpg" alt="" width="976" height="549"></li>
 				</ul>
-
-				<p id="js-gallery-caption" class="gallery__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat pulvinar lorem quis pellentesque. Mauris sit amet orci vitae lectus tristique convallis. Cras vitae lacus non diam accumsan commodo quis nec urna.</p>
 
 				<button id="js-gallery-previous" class="gallery__previous deactivated"><span class="icon">&#xF000;</span></button>
 				<button id="js-gallery-next" class="gallery__next"><span class="icon">&#xF001;</span></button>
@@ -65,7 +61,19 @@
 					<li><img src="img/gallery/9.jpg" alt="" width="149" height="84"></li>
 					<li><img src="img/gallery/10.jpg" alt="" width="149" height="84"></li>
 				</ul>
-				<p id="js-more-thumbs-toggle" class="thumbs__toggle">Show more <span class="icon">&#xF003;</span></p>
+			</div>
+
+			<div class="gallery__panel">
+				<div class="panel__information">
+					<p class="panel__image-of">
+						<span id="js-image-of">1</span> of 10
+					</p>
+					<p id="js-gallery-caption" class="panel__caption">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam placerat pulvinar lorem quis pellentesque. Mauris sit amet orci vitae lectus tristique convallis. Cras vitae lacus non diam accumsan commodo quis nec urna.</p>
+				</div>
+				
+				<ul class="panel__tools">
+					<li>Share</li>
+				</ul>
 			</div>
 		</div><!-- /.gallery -->
 
