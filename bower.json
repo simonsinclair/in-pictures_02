@@ -1,9 +1,9 @@
 {
   "private": true,
-  "name": "in-pictures",
+  "name": "in-pictures_02",
   "description": "",
   "version": "0.0.0",
-  "homepage": "https://github.com/simonsinclair/in-pictures",
+  "homepage": "https://github.com/simonsinclair/in-pictures_02",
   "license": "MIT",
   "dependencies": {
     "jquery": "~2.1.1",
