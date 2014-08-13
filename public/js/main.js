@@ -25,10 +25,6 @@
 				Gallery.nextImage();
 				break;
 
-			case 67:
-				Gallery.toggleCaption();
-				break;
-
 			default:
 				console.log(e.which);
 		}
@@ -42,11 +38,8 @@
 		config: {
 			numImages: 10,
 			imageWidth: 976,
-			thumbHeight: 84
 		},
 
-		isCaptionVisible: false,
-		isShowMoreThumbs: false,
 		activeImage: 0,
 
 		init: function(id) {
@@ -59,9 +52,7 @@
 		bindEvents: function() {
 			$('#js-gallery-previous').on('click', Gallery.previousImage);
 			$('#js-gallery-next').on('click', Gallery.nextImage);
-			$('#js-toggle-caption').on('click', Gallery.toggleCaption);
 			Gallery.$thumbs.on('click', 'li', Gallery.navigateViaThumb);
-			$('#js-more-thumbs-toggle').on('click', Gallery.toggleMoreThumbs);
 		},
 
 		setImagesWidth: function() {
@@ -81,17 +72,6 @@
 				return;
 			}
 			Gallery.navigateToImage( Gallery.activeImage + 1 );
-		},
-
-		toggleCaption: function() {
-			if(Gallery.isCaptionVisible) {
-				$('#js-toggle-caption', Gallery.$self).text('Hide caption');
-				$('#js-gallery-caption', Gallery.$self).removeClass('gallery__caption--hidden');
-			} else {
-				$('#js-toggle-caption', Gallery.$self).text('Show caption');
-				$('#js-gallery-caption', Gallery.$self).addClass('gallery__caption--hidden');
-			}
-			Gallery.isCaptionVisible = !Gallery.isCaptionVisible;
 		},
 
 		navigateViaThumb: function() {
@@ -117,7 +97,6 @@
 
 			// Update appearances
 			Gallery.updateActiveThumb();
-			Gallery.updateThumbRow();
 			Gallery.updatePreviousNext();
 			Gallery.updateImageOf();
 		},
@@ -127,22 +106,6 @@
 			$('li', Gallery.$thumbs)
 				.eq(Gallery.activeImage)
 				.addClass('active');
-		},
-
-		updateThumbRow: function() {
-
-			// If more thumbs are shown, don't touch the row position.
-			if(Gallery.isShowMoreThumbs) {
-				$('#js-gallery-thumbs ul').css('transform', 'translateY(0px)');
-				return;
-			}
-
-			// If less thumbs are show, update the row position.
-			// Thanks, Bogdan!
-			var rowMultiplier = ~~(Gallery.activeImage / 6);
-			var rowPos        = rowMultiplier * (Gallery.config.thumbHeight + 16);
-
-			$('#js-gallery-thumbs ul').css('transform', 'translateY('+ -rowPos +'px)');
 		},
 
 		updatePreviousNext: function() {
@@ -164,19 +127,6 @@
 
 		updateImageOf: function() {
 			$('#js-image-of').text( Gallery.activeImage + 1 );
-		},
-
-		toggleMoreThumbs: function() {
-			if(Gallery.isShowMoreThumbs) {
-				Gallery.$thumbs.removeClass('gallery__thumbs--more');
-				$('#js-more-thumbs-toggle').html('Show more <span class="icon">&#xF003;</span>');
-			} else {
-				Gallery.$thumbs.addClass('gallery__thumbs--more');
-				$('#js-more-thumbs-toggle').html('Show less <span class="icon">&#xF002;</span>');
-			}
-
-			Gallery.isShowMoreThumbs = !Gallery.isShowMoreThumbs;
-			Gallery.updateThumbRow();
 		}
 
 	};
