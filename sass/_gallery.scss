@@ -1,4 +1,6 @@
 // _gallery.scss
+$blinker-w:  122px;
+$viewport-w: 976px + ($blinker-w * 2);
 
 .loaded {
 	
@@ -26,6 +28,7 @@
 			font-weight: bold;
 		}
 		.gallery__tools {
+			cursor: pointer;
 			float: right;
 			margin-top: 0;
 			margin-bottom: 0;
@@ -37,7 +40,7 @@
 	.gallery__viewport {
 		overflow: hidden;
 		margin: 0 auto;
-		width: 1628px;
+		width: $viewport-w;
 	}
 		.gallery__focus {
 			@extend .container;
@@ -46,7 +49,7 @@
 		.gallery__images {
 			margin-top: 0;
 			margin-bottom: 0;
-			transition: transform 3s cubic-bezier(0.215, 0.61, 0.355, 1);
+			transition: transform 250ms cubic-bezier(0.215, 0.61, 0.355, 1);
 		}
 		.gallery__next,
 		.gallery__previous {
@@ -78,6 +81,8 @@
 		.gallery__previous {
 			left: 0;
 		}
+
+		// Blinkers
 		.blinker {
 			background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
 			background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba(0,0,0,0)));
@@ -88,8 +93,8 @@
 			
 			height: 100%;
 			position: absolute;
-				top: 0; left: -326px;
-			width: 326px;
+				top: 0; left: -$blinker-w;
+			width: $blinker-w;
 			z-index: 30;
 		}
 		.blinker--right {
@@ -100,16 +105,22 @@
 			background: -ms-linear-gradient(left, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
 			background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
 
-			right: -326px; left: auto;
+			right: -$blinker-w; left: auto;
 		}
 
 // THUMBNAILS
-.gallery__thumbs {
+.gallery__container {
 	border-top: 1px solid $keyline;
 	border-bottom: 1px solid $keyline;
+}
+.gallery__thumbs {
+	
+	margin: 0 auto;
+	overflow: hidden;
 	padding: 8px;
 	position: relative;
 	transition: height 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
+	width: $viewport-w;
 	z-index: 0;
 	
 	ul {
