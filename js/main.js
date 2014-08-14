@@ -38,10 +38,12 @@
 		config: {
 			numImages: 18,
 			imageWidth: 976,
-			thumbWidth: 61
+			thumbWidth: 61,
+			thumbScrollThreshold: 7
 		},
 
 		activeImage: 0,
+		thumbsPosition: 0,
 
 		init: function(id) {
 			Gallery.$elem 	= $(id);
@@ -64,7 +66,6 @@
 
 		setThumbsWidth: function() {
 			var thumbsWidth = (Gallery.config.thumbWidth * Gallery.config.numImages) + (8 * Gallery.config.numImages);
-			console.log(thumbsWidth);
 			Gallery.$thumbs.css('width', thumbsWidth);
 		},
 
@@ -105,6 +106,7 @@
 
 			// Update appearances
 			Gallery.updateActiveThumb();
+			Gallery.updateThumbsPosition();
 			Gallery.updatePreviousNext();
 			Gallery.updateImageOf();
 		},
@@ -114,6 +116,22 @@
 			$('li', Gallery.$thumbs)
 				.eq(Gallery.activeImage)
 				.addClass('active');
+		},
+
+		updateThumbsPosition: function() {
+
+			if((Gallery.activeImage + 1) > Gallery.config.thumbScrollThreshold) {
+
+				if(Gallery.config.numImages - Gallery.activeImage > Gallery.config.thumbScrollThreshold) {
+
+					// We subtract thumbScrollThreshold from activeImage to move the point at which we scroll
+					var position = Gallery.config.thumbWidth * ((Gallery.activeImage + 1) - Gallery.config.thumbScrollThreshold);
+					Gallery.$thumbs.css('transform', 'translateX('+ -position +'px)');
+				}
+
+			} else {
+				Gallery.$thumbs.css('transform', 'translateX(0)');
+			}
 		},
 
 		updatePreviousNext: function() {
