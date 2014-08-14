@@ -167,4 +167,8 @@ $viewport-w: 976px + ($blinker-w * 2);
 		padding-left: 0;
 		text-align: right;
 		width: 25%;
+		
+		li {
+			cursor: pointer;
+		}
 	}
