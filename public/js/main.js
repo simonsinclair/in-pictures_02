@@ -36,8 +36,9 @@
 	var Gallery = {
 
 		config: {
-			numImages: 10,
+			numImages: 18,
 			imageWidth: 976,
+			thumbWidth: 61
 		},
 
 		activeImage: 0,
@@ -47,6 +48,7 @@
 			Gallery.$thumbs = $('#js-gallery-thumbs', Gallery.$elem);
 			Gallery.bindEvents();
 			Gallery.setImagesWidth();
+			Gallery.setThumbsWidth();
 		},
 
 		bindEvents: function() {
@@ -58,6 +60,12 @@
 		setImagesWidth: function() {
 			var imagesWidth = Gallery.config.imageWidth * Gallery.config.numImages;
 			$('#js-gallery-images', Gallery.$elem).css('width', imagesWidth);
+		},
+
+		setThumbsWidth: function() {
+			var thumbsWidth = (Gallery.config.thumbWidth * Gallery.config.numImages) + (8 * Gallery.config.numImages);
+			console.log(thumbsWidth);
+			Gallery.$thumbs.css('width', thumbsWidth);
 		},
 
 		previousImage: function(e) {
