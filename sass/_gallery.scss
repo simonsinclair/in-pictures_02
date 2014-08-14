@@ -9,7 +9,9 @@
 }
 
 .gallery {
+	margin: 0 -16px;
 	opacity: 0;
+	overflow: hidden;
 	transition: opacity 150ms linear;
 	
 	img {
@@ -18,7 +20,11 @@
 }
 	.gallery__toolbar {
 		@extend .clearfix;
+		border-bottom: 1px solid $keyline;
 	}
+		.image-of {
+			font-weight: bold;
+		}
 		.gallery__tools {
 			float: right;
 			margin-top: 0;
@@ -29,7 +35,7 @@
 			}
 		}
 	.gallery__viewport {
-		overflow: hidden;
+		@extend .container;
 		position: relative;
 		z-index: 10;
 	}
@@ -71,7 +77,9 @@
 
 // THUMBNAILS
 .gallery__thumbs {
-	margin-left: -16px;
+	border-top: 1px solid $keyline;
+	border-bottom: 1px solid $keyline;
+	padding: 8px;
 	position: relative;
 	transition: height 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
 	z-index: 0;
@@ -79,15 +87,12 @@
 	ul {
 		margin-top: 0;
 		margin-bottom: 0;
+		margin-left: -8px;
 		transition: transform 150ms cubic-bezier(0.215, 0.61, 0.355, 1);
 	}		
 	li {
-		background-color: #000;
 		cursor: pointer;
-		margin-top: 16px;
-		margin-left: 16px;
-		// width: ( (976px - (16 * 5) ) / 6 );
-		
+		margin-left: 8px;
 		
 		&:hover,
 		&.active {
@@ -106,7 +111,9 @@
 
 // PANEL
 .gallery__panel {
+	@extend .container;
 	@extend .clearfix;
+	border-bottom: 1px solid $keyline;
 }	
 	.panel__information,
 	.panel__tools {
@@ -115,9 +122,6 @@
 	.panel__information {
 		width: 75%;
 	}
-		.panel__image-of {
-			font-weight: bold;
-		}
 		.panel__caption {}
 	.panel__tools {
 		list-style: none;

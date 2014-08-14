@@ -1,9 +1,10 @@
 // main.scss
 //
 
-$body-bg: #231F20;
+$body: #000;
 $brand: #C92026;
 $hover: #1167A8;
+$keyline: #404040;
 
 @font-face {
 	font-family: 'GELIconsFull';
@@ -30,7 +31,7 @@ $hover: #1167A8;
 
 html {}
 body {
-	background-color: $body-bg;
+	background-color: $body;
 	color: #FFF;
 	font-size: 14px;
 	line-height: 1.5;
@@ -82,15 +83,21 @@ button {
 // PAGE
 //
 .page {
-	margin: 0 auto;
 	padding: 0 16px;
-	max-width: 1008px;
+}
+.container {
+	margin: 0 auto;
+	width: 976px;
+}
+.header {
+	@extend .container;
 }
 .breadcrumb {
 	font-size: 20px;
 }
 @import 'gallery';
 .share {
+	@extend .container;
 	margin-top: 48px;
 	
 	li {
@@ -114,6 +121,7 @@ button {
 	}
 }
 .more-galleries {
+	@extend .container;
 	margin-top: 48px;
 	
 	li {
