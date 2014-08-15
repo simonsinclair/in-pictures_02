@@ -62,9 +62,20 @@ button {
 	outline: none;
 	padding: 0;
 }
+.icon,
+.icon__glyph {
+	display: inline-block;
+}
 .icon {
 	font-family: 'GELIconsFull';
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
 }
+	.icon__glyph {
+		font-size: 24px;
+		vertical-align: -2px;
+	}
 
 // BODY
 //
