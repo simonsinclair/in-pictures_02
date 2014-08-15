@@ -40,7 +40,8 @@ body {
 h1 {}
 h2 {
 	font-size: 32px;
-	margin: 12px 0;
+	margin: 16px 0;
+	line-height: 1;
 	letter-spacing: -1px;
 	
 	~ p {
@@ -103,9 +104,10 @@ button {
 .header {
 	@extend .container;
 }
-.breadcrumb {
-	font-size: 20px;
-}
+	.breadcrumb {
+		font-size: 20px;
+		margin: 12px 0 40px;
+	}
 	.description {
 		width: 650px;
 	}
