@@ -170,5 +170,10 @@ $viewport-w: 976px + ($blinker-w * 2);
 		
 		li {
 			cursor: pointer;
+			padding-left: 22px;
 		}
 	}
+		.tools__share {
+			background: url('../img/share-icon.png') 0 3px no-repeat;
+			color: #69BB45;
+		}
