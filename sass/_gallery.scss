@@ -153,20 +153,16 @@ $viewport-w: 976px + ($blinker-w * 2);
 	@extend .container;
 	@extend .clearfix;
 	border-bottom: 1px solid $keyline;
-}	
-	.panel__information,
-	.panel__tools {
-		float: left;
-	}
+}
 	.panel__information {
-		width: 75%;
+		float: left;
+		width: 650px;
 	}
 		.panel__caption {}
 	.panel__tools {
+		float: right;
 		list-style: none;
 		padding-left: 0;
-		text-align: right;
-		width: 25%;
 		
 		li {
 			cursor: pointer;
