@@ -1,4 +1,6 @@
-In Pictures
-===========
+# In Pictures
 
-Version 02.
+A gallery prototype.
+
+## Attribution
+Dummy data (images and captions) from http://www.buzzfeed.com/chelseamarshall/best-dog-pictures.
