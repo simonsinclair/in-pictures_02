@@ -44,6 +44,7 @@
 
 		activeImage: 0,
 		thumbsPosition: 0,
+		captions: {},
 
 		init: function(id) {
 			Gallery.$elem 	= $(id);
@@ -51,6 +52,14 @@
 			Gallery.bindEvents();
 			Gallery.setImagesWidth();
 			Gallery.setThumbsWidth();
+
+			$.get('captions.json', function(data) {
+				Gallery.captions = data;
+			});
+		},
+
+		setCaptions: function(d) {
+			console.log(d);
 		},
 
 		bindEvents: function() {
@@ -109,6 +118,7 @@
 			Gallery.updateThumbsPosition();
 			Gallery.updatePreviousNext();
 			Gallery.updateImageOf();
+			Gallery.updateCaption();
 		},
 
 		updateActiveThumb: function() {
@@ -153,6 +163,10 @@
 
 		updateImageOf: function() {
 			$('#js-image-of').text( Gallery.activeImage + 1 );
+		},
+
+		updateCaption: function() {
+			$('#js-gallery-caption').text( Gallery.captions[Gallery.activeImage] );
 		}
 
 	};
